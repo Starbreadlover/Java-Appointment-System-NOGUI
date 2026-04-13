@@ -8,11 +8,12 @@ public class Group6AppointmentSystem {
         Scanner scanner = new Scanner (System.in);
         MakeAppointments make = new MakeAppointments();
         CheckAppointments check = new CheckAppointments();
-        
+
         int choice;
+        int sort;
         do  {
             
-            System.out.println ("===== Welcome To Group6 Corp Appointment System =====");
+            System.out.println ("\n===== Welcome To Group6 Corp Appointment System =====");
             System.out.println ("[1] Book An Appointment");
             System.out.println ("[2] View Booked Appointments ");
      
@@ -26,10 +27,24 @@ public class Group6AppointmentSystem {
                     
                 case 2:
                     check.viewAppointments(make.getAppointmentNames(), make.getAppointmentMonth(), make.getAppointmentDays(),
-                            make.getstartHours(), make.getendHours(),make.getCount());
+                    make.getstartHours(), make.getendHours(),make.getCount());
+
+                    System.out.println("[1] Sort Alphabetically");
+                    System.out.println("[2] Sort By Date");
+                    System.out.println ("[3] Exit View Booked Appointments");
+                    System.out.print("Choice: ");
+                    sort = scanner.nextInt();
+
+                    if (sort == 1) {
+                        check.alphabeticalSort(make.getAppointmentNames(), make.getAppointmentMonth(), make.getAppointmentDays(), 
+                        make.getstartHours(), make.getendHours(), make.getCount());
+                    } else if (sort == 2) {
+                        check.DateSort(make.getAppointmentNames(), make.getAppointmentMonth(), make.getAppointmentDays(), 
+                        make.getstartHours(), make.getendHours(), make.getCount());
+                    } else if (sort == 3) {
+                        break;
+                    }
                     break;
-                            
-                    
                     
                 default :
                     break;
