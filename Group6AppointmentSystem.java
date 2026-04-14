@@ -1,4 +1,3 @@
-
 import Group6Functions.*;
 import java.util.Scanner;
 
@@ -8,6 +7,7 @@ public class Group6AppointmentSystem {
         Scanner scanner = new Scanner (System.in);
         MakeAppointments make = new MakeAppointments();
         CheckAppointments check = new CheckAppointments();
+        CancelAppointment cancel = new CancelAppointment();
 
         int choice;
         int sort;
@@ -15,7 +15,8 @@ public class Group6AppointmentSystem {
             
             System.out.println ("\n===== Welcome To Group6 Corp Appointment System =====");
             System.out.println ("[1] Book An Appointment");
-            System.out.println ("[2] View Booked Appointments ");
+            System.out.println ("[2] View Booked Appointments");
+            System.out.println ("[3] Cancel Appointment");
      
             System.out.print ("Enter Choice: ");
             choice = scanner.nextInt();
@@ -45,6 +46,11 @@ public class Group6AppointmentSystem {
                         break;
                     }
                     break;
+                    
+                case 3:
+                    cancel.cancel(scanner, make.getAppointmentNames(), make.getAppointmentMonth(), make.getAppointmentDays(), make.getstartHours(),
+                            make.getendHours(), make.getCount());
+                    
                     
                 default :
                     break;
